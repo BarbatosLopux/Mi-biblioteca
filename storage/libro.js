@@ -85,7 +85,7 @@ export const putOne = async(obj={})=>{
     }
     const {limit:lin, ...objUpdate} = obj;
     obj = {...all, ...objUpdate};
-  
+
     config.method = "PUT";
     config.body = JSON.stringify(obj);
     let res = await (await fetch(`${uri}/libro/${id}`, config)).json();
@@ -97,5 +97,4 @@ export const putOne = async(obj={})=>{
 // console.log(await post({titulo:"Pepito", fecha: "2023-08-10", autorId:1, categoriaId:1, editorialId:1, isbn:"123", numPaginacion: 500, estadoId:1}));
 // console.log(await getAll());
 // console.log(await deleteOne(1));
-
-console.log(await putOne({id: 1, limit:"2.0.0", titulo: "Miguel", isbn: "456", numPaginacion:700}));
+//console.log(await putOne({id: 1, limit:"2.0.0", titulo: "Miguel", isbn: "456", numPaginacion:700}));
