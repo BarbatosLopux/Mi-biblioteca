@@ -1,3 +1,5 @@
+import { getOne as getOneCategoria  }  from "./categoria.js";
+import { getOne as getOneAutor  }  from "./autor.js";
 import {env} from "../config.js";
 
 const uri = `${env.ssl + env.hotsName}:${env.port}`;
@@ -54,6 +56,20 @@ export const getOne = async(id)=>{
     let res = await (await fetch(`${uri}/libro/${id}`, config)).json();
     return res;
 }
+export const getRelationships = async()=>{
+    config.method = "GET";
+    // config.body = "";
+    let res = await (await fetch(`${uri}/libro`, config)).json();
+    res = await Promise.all(res.map(async(data,id)=>{
+        let {categoriaId:catId, autorId:autId} = data;
+        let cat = await getOneCategoria(catId);
+        let aut = await getOneAutor(autId);
+        data.categoriaId = cat;
+        data.autorId = aut;
+        return data;
+    }))
+    return res;
+}
 export const post = async(obj={})=>{
     obj = validarExtructura(obj);
     if(obj.status) return obj;
@@ -85,7 +101,6 @@ export const putOne = async(obj={})=>{
     }
     const {limit:lin, ...objUpdate} = obj;
     obj = {...all, ...objUpdate};
-
     config.method = "PUT";
     config.body = JSON.stringify(obj);
     let res = await (await fetch(`${uri}/libro/${id}`, config)).json();
@@ -93,8 +108,54 @@ export const putOne = async(obj={})=>{
 }
 
 
+console.log(await getRelationships());
 
-// console.log(await post({titulo:"Pepito", fecha: "2023-08-10", autorId:1, categoriaId:1, editorialId:1, isbn:"123", numPaginacion: 500, estadoId:1}));
+
+
+
+// console.log(await post({
+//     titulo:"El olor del miedo", 
+//     fecha: "2023-08-30", 
+//     autorId:1, autaautAuthenticatorAttestationResponse
+//     categoriaId:1, 
+//     editorialId:1, 
+//     isbn:"380554", 
+//     numPaginacion: 552, 
+//     estadoId:1
+// }));
+// console.log(await post({
+//     titulo:"FORASTERA", 
+//     fecha: "2006-08-30", 
+//     autorId:1, 
+//     categoriaId:2, 
+//     editorialId:1, 
+//     isbn:"9788418173745", 
+//     numPaginacion: 764, 
+//     estadoId:1
+// }));
+// console.log(await post({
+//     titulo:"Valle de la calma", 
+//     fecha: "2018-04-02", 
+//     autorId:1, 
+//     categoriaId:3, 
+//     editorialId:1, 
+//     isbn:"273059", 
+//     numPaginacion: 296, 
+//     estadoId:1
+// }));
+// console.log(await post({
+//     titulo:"Prometeo encadenado", 
+//     fecha: "2020-01-01", 
+//     autorId:1, 
+//     categoriaId:1, 
+//     editorialId:1, 
+//     isbn:"16758", 
+//     numPaginacion: 296, 
+//     estadoId:1
+// }));
+
+
+
 // console.log(await getAll());
 // console.log(await deleteOne(1));
-//console.log(await putOne({id: 1, limit:"2.0.0", titulo: "Miguel", isbn: "456", numPaginacion:700}));
+// console.log(await putOne({id: 1, limit:"2.0.0", titulo: "Miguel", isbn: "456", numPaginacion:700}));

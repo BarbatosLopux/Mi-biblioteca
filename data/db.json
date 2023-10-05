@@ -1,22 +1,93 @@
 {
-  "categoria": [],
+  "categoria": [
+    {
+      "nombre": "Drama",
+      "id": 1
+    },
+    {
+      "nombre": "Romance",
+      "id": 2
+    },
+    {
+      "nombre": "Terror",
+      "id": 3
+    }
+  ],
   "editorial": [],
   "estado-libro": [],
   "libro": [
     {
-      "id": 1,
-      "titulo": "Miguel",
-      "isbn": "456",
-      "numPaginacion": 700,
-      "fecha": "2023-08-10",
+      "titulo": "El olor del miedo",
+      "fecha": "2023-08-30",
       "autorId": 1,
       "categoriaId": 1,
       "editorialId": 1,
-      "estadoId": 1
+      "isbn": "380554",
+      "numPaginacion": 552,
+      "estadoId": 1,
+      "id": 1
+    },
+    {
+      "titulo": "FORASTERA",
+      "fecha": "2006-08-30",
+      "autorId": 2,
+      "categoriaId": 80,
+      "editorialId": 1,
+      "isbn": "9788418173745",
+      "numPaginacion": 764,
+      "estadoId": 1,
+      "id": 2
+    },
+    {
+      "titulo": "Valle de la calma",
+      "fecha": "2018-04-02",
+      "autorId": 3,
+      "categoriaId": 3,
+      "editorialId": 1,
+      "isbn": "273059",
+      "numPaginacion": 296,
+      "estadoId": 1,
+      "id": 3
+    },
+    {
+      "titulo": "Prometeo encadenado",
+      "fecha": "2020-01-01",
+      "autorId": 4,
+      "categoriaId": 1,
+      "editorialId": 1,
+      "isbn": "16758",
+      "numPaginacion": 296,
+      "estadoId": 1,
+      "id": 4
     }
   ],
   "prestamo": [],
   "reserva": [],
-  "autor": [],
+  "autor": [
+    {
+      "nombre": "Miguel",
+      "apellido": "Castro",
+      "nacionalidad": "Europeo",
+      "id": 1
+    },
+    {
+      "nombre": "Santiago",
+      "apellido": "Marquez",
+      "nacionalidad": "Venezolano",
+      "id": 2
+    },
+    {
+      "nombre": "Kevin",
+      "apellido": "Esteba",
+      "nacionalidad": "Japones",
+      "id": 3
+    },
+    {
+      "nombre": "Cristian",
+      "apellido": "Pardo",
+      "nacionalidad": "Italiano",
+      "id": 4
+    }
+  ],
   "usuario": []
 }
