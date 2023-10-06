@@ -13,7 +13,26 @@
       "id": 3
     }
   ],
-  "editorial": [],
+  "editorial": [
+    {
+      "nombre": "Norma",
+      "direccion": "clle",
+      "telefono": 3252525828,
+      "id": 1
+    },
+    {
+      "nombre": "Norma",
+      "direccion": "clle",
+      "telefono": 3252525828,
+      "id": 2
+    },
+    {
+      "nombre": "Norma",
+      "direccion": "clle 654654#",
+      "telefono": 3252525828,
+      "id": 3
+    }
+  ],
   "estado-libro": [],
   "libro": [
     {
